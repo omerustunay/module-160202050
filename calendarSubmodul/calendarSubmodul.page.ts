@@ -4,7 +4,10 @@ import { AlertController } from '@ionic/angular';
 import { formatDate } from '@angular/common';
 import { SQLite, SQLiteObject } from '@ionic-native/sqlite/ngx';
 import { Platform } from '@ionic/angular';
- 
+import {ToastController} from '@ionic/angular';
+import {SQLService} from '../services/sql/sql.service';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-calendarSubmodul',
   templateUrl: 'calendarSubmodul.page.html'
@@ -40,7 +43,29 @@ export class CalendarSubmodulPage implements OnInit {
   constructor(private alertCtrl: AlertController, @Inject(LOCALE_ID)
   private locale: string,
   private platform: Platform,
-  private sqlite: SQLite) {
+  private sqlService: SQLService, 
+  private toastController: ToastController,
+  private sqlite: SQLite,
+  private router:Router) {
+    }
+
+
+    async presentToast(message: string) {
+      const toast = await this.toastController.create({
+        message: message,
+        position: 'top',
+        duration: 2000,
+        buttons: [
+          {
+            text: 'Done',
+            role: 'cancel',
+            handler: () => {
+              console.log('Cancel clicked');
+            }
+          }
+        ]
+      });
+      toast.present();
     }
     createDB() {
       this.sqlite.create({
@@ -49,26 +74,29 @@ export class CalendarSubmodulPage implements OnInit {
       })
         .then((db: SQLiteObject) => {
           this.databaseObj = db;
-          alert('calendarTable Database Created!');
+          this.presentToast('calendarTable Database Created!');
         })
         .catch(e => {
-          alert("error " + JSON.stringify(e))
+          this.presentToast("error " + JSON.stringify(e))
         });
+    }
+    goToMap(){
+      this.router.navigateByUrl('/map');
     }
 
     createTable() {
       this.databaseObj.executeSql('CREATE TABLE IF NOT EXISTS ' + this.table_name + ' (pid INTEGER PRIMARY KEY, Name varchar(255))', [])
         .then(() => {
-          alert('Table Created!');
+          this.presentToast('Table Created!');
         })
         .catch(e => {
-          alert("error " + JSON.stringify(e))
+          this.presentToast("error " + JSON.stringify(e))
         });
     }
 
     insertRow() {
       if (!this.name_model.length) {
-        alert("Enter Name");
+        this.presentToast("Enter Name");
         return;
       }
       this.databaseObj.executeSql('INSERT INTO ' + this.table_name + ' (Name) VALUES ("' + this.name_model + '")', [])
@@ -77,7 +105,7 @@ export class CalendarSubmodulPage implements OnInit {
           this.getRows();
         })
         .catch(e => {
-          alert("error " + JSON.stringify(e))
+          this.presentToast("error " + JSON.stringify(e))
         });
     }
 
@@ -105,14 +133,14 @@ export class CalendarSubmodulPage implements OnInit {
         }
       })
       .catch(e => {
-        alert("error " + JSON.stringify(e))
+        this.presentToast("error " + JSON.stringify(e))
       });
   }
  
   deleteRow(item) {
     this.databaseObj.executeSql("DELETE FROM " + this.table_name + " WHERE pid = " + item.pid, [])
       .then((res) => {
-        alert("Row Deleted!");
+        this.presentToast("Row Deleted!");
         this.getRows();
       })
       .catch(e => {
@@ -129,7 +157,7 @@ export class CalendarSubmodulPage implements OnInit {
       allDay: this.event.allDay,
       desc: this.event.desc
     }
- 
+  
     if (eventCopy.allDay) {
       let start = eventCopy.startTime;
       let end = eventCopy.endTime;
