@@ -1,17 +1,19 @@
-# module-template
-
-
 # Bakkal Defterim Uygulaması
 
 
-Proje geliştiricileri
+## Proje geliştiricileri
 
 - Ömer Üstünay - 160202050 - [map_calendar_budget @ d60da78]
+  
+  Son 3 fotoğraf kendi geliştirdiğim projenin ekran görüntüleridir.
+  
+
+
 - Mehmet Aran - 160202030 - [product-module @ 4b4e4db]
-- Hüseyin Fırat Albayrak - 160202024 - [HesapEkrani @ 41a9202]
+- Hüseyin Fırat Albayrak - 160202024 - [HesapEkrani @ 031ca2e]
 
 
-# # Proje Çalışma akışı
+## Proje Çalışma akışı
 
 Proje login ve register sayfası ile başlamaktadır.
 Login olmak için önce kayıt olmak gerekmektedir. Kayıt işlemlerimiz Firebase ile gerçekleştirilmektedir. 
@@ -64,36 +66,37 @@ Kullanılan Native Özellikler
 
 
 ### Login Ekranı
- ![login](https://raw.githubusercontent.com/2019-BLM441/app-160202050/master/img/1.png)
+<img src="https://raw.githubusercontent.com/2019-BLM441/app-160202050/master/img/1.png" width="300" height="450">
+
  
  
 ### Register Ekranı
- ![Register](https://raw.githubusercontent.com/2019-BLM441/app-160202050/master/img/2.png)
+<img src="https://raw.githubusercontent.com/2019-BLM441/app-160202050/master/img/2.png" width="300" height="450">
   
   
 ### Hesap Ekranı
- ![Hesap](https://raw.githubusercontent.com/2019-BLM441/app-160202050/master/img/3.png)
+<img src="https://raw.githubusercontent.com/2019-BLM441/app-160202050/master/img/3.png" width="350" height="450">
  
  
 ### Verecek Ekranı
- ![Verecek](https://raw.githubusercontent.com/2019-BLM441/app-160202050/master/img/5.png)
+<img src="https://raw.githubusercontent.com/2019-BLM441/app-160202050/master/img/4.png" width="350" height="450">
  
  
 ### Durum Ekranı
- ![Durum](https://raw.githubusercontent.com/2019-BLM441/app-160202050/master/img/6.png)
+<img src="https://raw.githubusercontent.com/2019-BLM441/app-160202050/master/img/5.png" width="350" height="450">
  
  
 ### Calendar Etkinlik Ekleme Ekranı
- ![Calendar Etkinlik](https://raw.githubusercontent.com/2019-BLM441/app-160202050/master/img/9.png)
+<img src="https://raw.githubusercontent.com/2019-BLM441/app-160202050/master/img/6.png" width="300" height="450">
 
 
 ### Takvim Ekranı 
- ![Takvim](https://raw.githubusercontent.com/2019-BLM441/app-160202050/master/img/7.png)
+<img src="https://raw.githubusercontent.com/2019-BLM441/app-160202050/master/img/7.png" width="300" height="450">
  
  
 ###  Takvim Bilgilendirme Ekranı (Toast kullanımı)
- ![Toast](https://raw.githubusercontent.com/2019-BLM441/app-160202050/master/img/8.png)
+<img src="https://raw.githubusercontent.com/2019-BLM441/app-160202050/master/img/8.png" width="300" height="450">
  
  
 ###  Bütçe Ekranı
- ![Bütçe](https://raw.githubusercontent.com/2019-BLM441/app-160202050/master/img/10.png)
+<img src="https://raw.githubusercontent.com/2019-BLM441/app-160202050/master/img/10.png" width="300" height="450">
